@@ -3,50 +3,20 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	     // write your code here
+       Card cardOne = new Card('Q', Card.Suit.HEARTS);
+       Card cardTwo = new Card('2', Card.Suit.CLUBS);
+       Card cardThree = new Card('B', Card.Suit.SPADES);
+
+       System.out.println(cardOne.toString());
+       System.out.println(cardTwo.toString());
+       System.out.println(cardThree.toString());
+       System.out.println();
+
+       cardTwo.set('F', Card.Suit.HEARTS); // make illegal
+       cardThree.set('6', Card.Suit.DIAMONDS); // make legal
+
+       System.out.println(cardOne.toString());
+       System.out.println(cardTwo.toString());
+       System.out.println(cardThree.toString());
     }
-}
-
-class Card {
-    enum Suit { clubs, diamonds, hearts, spades };
-    char value;
-    Suit suit;
-    boolean errorFlag;
-
-    Card() {
-        // no arg constructor default card is A of spades
-    }
-
-    Card(char value, Suit suit) {
-        // constructor that sets card with args
-    }
-
-    public String toString() {
-        return ""; // stringify this Card
-    }
-
-    boolean set(char value, Suit suit) {
-        // do validation and set card
-        return true; // return true if validation passed or false
-    }
-
-    public Suit getSuit() {
-        return Suit.clubs; // return this to be actual suit of card
-    }
-
-    public char getValue() {
-        return 'T'; // return this to be actual value of card
-    }
-
-    private boolean isValid(char value, Suit suit) {
-        return true;
-    }
-}
-
-class Hand {
-
-}
-
-class Deck {
-
 }
