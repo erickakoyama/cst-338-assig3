@@ -12,28 +12,28 @@ public class Card {
    boolean errorFlag;
 
    public Card() {
-      this.value = 'A';
-      this.suit = Suit.SPADES;
+      value = 'A';
+      suit = Suit.SPADES;
    }
 
    public Card(char value, Suit suit) {
-      this.set(value, suit);
+      set(value, suit);
    }
 
    public boolean equals(Card card) {
-      return card.getSuit() == this.suit && card.getValue() == this.value;
+      return card.getSuit() == suit && card.getValue() == value;
    }
 
    public boolean getErrorFlag() {
-      return this.errorFlag;
+      return errorFlag;
    }
 
    public Suit getSuit() {
-      return this.suit;
+      return suit;
    }
 
    public char getValue() {
-      return this.value;
+      return value;
    }
 
    private boolean isValid(char value, Suit suit) {
@@ -55,19 +55,19 @@ public class Card {
 
    public boolean set(char value, Suit suit) {
       if (isValid(value, suit)) {
-         this.errorFlag = false;
+         errorFlag = false;
          this.value = value;
          this.suit = suit;
       } else {
-         this.errorFlag = true;
+         errorFlag = true;
       }
 
-      return !this.errorFlag;
+      return !errorFlag;
    }
 
    public String toString() {
       if (!errorFlag) {
-         return this.value + " of " + this.suit;
+         return value + " of " + suit;
       } else {
          return "** illegal **";
       }
