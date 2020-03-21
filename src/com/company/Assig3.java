@@ -1,8 +1,12 @@
 package com.company;
 
-public class Main {
+public class Assig3 {
 
     public static void main(String[] args) {
+      testCard();
+    }
+
+    public static void testCard() {
        Card cardOne = new Card('Q', Card.Suit.HEARTS);
        Card cardTwo = new Card('2', Card.Suit.CLUBS);
        Card cardThree = new Card('B', Card.Suit.SPADES);
