@@ -1,15 +1,15 @@
 package com.company;
 
 public class Card {
-   enum Suit {
+   public static enum Suit {
       CLUBS,
       DIAMONDS,
       HEARTS,
       SPADES
    };
-   char value;
-   Suit suit;
-   boolean errorFlag;
+   private char value;
+   private Suit suit;
+   private boolean errorFlag;
 
    public Card() {
       value = 'A';
