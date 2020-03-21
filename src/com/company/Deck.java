@@ -1,6 +1,6 @@
 package com.company;
 
-class Deck {
+public class Deck {
    public final int MAX_CARDS = 6*52; // 6 packs of 52 cards
    private static Card[] masterPack = new Card[52];
    private Card[] cards;
