@@ -32,6 +32,15 @@ public class Card {
    }
 
    /**
+    * Copy constructor
+    * @param card Card to make copy of.
+    */
+   Card(Card card) {
+      set(card.getValue(), card.getSuit());
+   }
+
+
+   /**
     * Check if the given Card object equals this one.
     * @param card Card instance to check for equality to this.
     * @return     Whether the Card objects are equal.
