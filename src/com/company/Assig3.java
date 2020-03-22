@@ -33,7 +33,47 @@ public class Assig3 {
        System.out.println(cardTwo.toString());
        System.out.println(cardThree.toString());
     }
+    /* 
+    Test Hand Class
+    */
+    public static void handTester()
+    {
+        // Hand class test run
+        Card c1 = new Card('3', Card.Suit.CLUBS);
+        Card c2 = new Card('Q', Card.Suit.HEARTS);
+        Card c3 = new Card('K', Card.Suit.DIAMONDS);
+        Card c4 = new Card();
 
+        Hand h = new Hand();
+
+        boolean handNotFull = true;
+        // Add cards to hand until full
+        while(handNotFull)
+        {
+            h.takeCard(c1);
+            h.takeCard(c2);
+            h.takeCard(c3);
+            handNotFull = h.takeCard(c4); // this will tell us if we've filled our hand in our latest iteration
+        }
+        System.out.println("Hand full \nAfter deal");
+
+        System.out.println(h.toString());
+
+        System.out.println("Testing inspectCard()");
+        Card c = h.inspectCard(25);
+        c.toString();
+
+        // Play all cards in hand
+        for(int i = h.getNumCards(); i > 0; i--)
+        {
+            Card topCard = h.playCard();
+            System.out.println("Playing " + topCard.toString());
+        }
+
+        System.out.println("After playing all cards");
+        System.out.println(h.toString());
+    }
+    
    /**
     * Test Deck and Hand class
     */
