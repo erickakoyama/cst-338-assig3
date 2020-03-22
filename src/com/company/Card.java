@@ -39,7 +39,6 @@ public class Card {
       set(card.getValue(), card.getSuit());
    }
 
-
    /**
     * Check if the given Card object equals this one.
     * @param card Card instance to check for equality to this.
