@@ -53,40 +53,40 @@ public class Assig3 {
          }
 
          Deck deck = new Deck();
-         dealOutDeck(deck, players);
+         dealOutDeck(deck, players, numPlayers);
 
          System.out.println("Here are our hands, from unshuffled deck:");
-         printHands(players);
+         printHands(players, numPlayers);
 
-         // reset all hands
-         for(Hand hand: players) {
-            hand.reset();
+         // reset deck and hands
+         deck.init(1);
+         for (int i = 0; i < numPlayers; i++) {
+            players[i].resetHand();
          }
 
          // shuffle deck and deal again
          deck.shuffle();
-         dealOutDeck(deck, players);
+         dealOutDeck(deck, players, numPlayers);
 
          System.out.println("Here are our hands, from SHUFFLED deck:");
-         printHands(players);
+         printHands(players, numPlayers);
 
       } while (numPlayers < minPlayers || numPlayers > maxPlayers); // keep asking until we get a valid input.
    }
 
-   public static void dealOutDeck(Deck deck, Hand[] players) {
-      // commenting this out until we have more code for Deck
-//      while (deck.getTopCard() >= 0) {
-//         for(Hand player: players) {
-//            if (deck.getTopCard() >= 0) {
-//               player.takeCard(deck.dealCard());
-//            }
-//         }
-//      }
+   public static void dealOutDeck(Deck deck, Hand[] players, int numPlayers) {
+      while (deck.getTopCard() > 0) {
+         for (int i = 0; i < numPlayers; i++) {
+            if (deck.getTopCard() > 0) {
+               players[i].takeCard(deck.dealCard());
+            }
+         }
+      }
    }
 
-   public static void printHands(Hand[] hands) {
-      for (Hand hand: hands) {
-         System.out.println(hand.toString());
+   public static void printHands(Hand[] hands, int numPlayers) {
+      for (int i = 0; i < numPlayers; i++) {
+        System.out.println(hands[i].toString());
       }
    }
 }
