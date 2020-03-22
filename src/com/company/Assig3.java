@@ -7,7 +7,7 @@ public class Assig3 {
     public static void main(String[] args) {
        Scanner keyboard = new Scanner(System.in);
 
-       testCard(); // TODO: Delete this before turning in: Only Phase 3 and 4 output are required!
+       testDeck();
 
        System.out.println();
 
@@ -16,22 +16,24 @@ public class Assig3 {
        keyboard.close();
     }
 
-    public static void testCard() {
-       Card cardOne = new Card('Q', Card.Suit.HEARTS);
-       Card cardTwo = new Card('2', Card.Suit.CLUBS);
-       Card cardThree = new Card('B', Card.Suit.SPADES);
+    public static void testDeck(){
+       Deck deck = new Deck(2);
 
-       System.out.println(cardOne.toString());
-       System.out.println(cardTwo.toString());
-       System.out.println(cardThree.toString());
-       System.out.println();
+       while (deck.getTopCard() > 0) { // unshuffled
+          if (deck.getTopCard() > 0) {
+             System.out.print(deck.dealCard() + " / ");
+          }
+       }
 
-       cardTwo.set('F', Card.Suit.HEARTS); // make illegal
-       cardThree.set('6', Card.Suit.DIAMONDS); // make legal
+       System.out.println(); System.out.println(); // separate outputs
+       deck.init(2);
+       deck.shuffle();
 
-       System.out.println(cardOne.toString());
-       System.out.println(cardTwo.toString());
-       System.out.println(cardThree.toString());
+       while (deck.getTopCard() > 0) { // shuffled
+          if (deck.getTopCard() > 0) {
+             System.out.print(deck.dealCard() + " / ");
+          }
+       }
     }
     /* 
     Test Hand Class

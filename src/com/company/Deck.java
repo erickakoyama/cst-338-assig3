@@ -76,12 +76,12 @@ public class Deck {
       }
 
       Suit[] suits = Suit.values();
-      char[] values = {'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2', 'A'};
+      char[] values = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'};
 
       // Load all the cards into the master pack
-      for (int i = 0; i < values.length; i++) {
-         for (int j = 0; j < suits.length; j++) {
-            masterPack[(suits.length * i) + j] = new Card(values[i], suits[j]);
+      for (int i = 0; i < suits.length; i++) {
+         for (int j = 0; j < values.length; j++) {
+            masterPack[(values.length * i) + j] = new Card(values[j], suits[i]);
          }
       }
    }
