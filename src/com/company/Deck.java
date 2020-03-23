@@ -1,5 +1,5 @@
 package com.company;
-
+import java.util.Random;
 import com.company.Card.Suit;
 
 public class Deck {
@@ -38,6 +38,15 @@ public class Deck {
 
    public void shuffle() {
       // mixes up the cards with the help of the standard random number generator.
+      for(i = 0; i < topcard - 1; i++)
+      {
+        // select a random number between i and topcard
+        j = Random().nextInt(topcard - i) + i;
+        Card temp = new Card(cards[j]);
+        cards[j] = cards[i];
+        cards[i] = temp;
+
+      }
    }
 
    public Card dealCard() {
