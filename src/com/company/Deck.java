@@ -6,7 +6,7 @@ import com.company.Card.Suit;
  * Deck class represents a deck of cards.
  */
 public class Deck {
-   public final int MAX_CARDS = 312; // 6*52 packs of 52 cards
+   public static final int MAX_CARDS = 312; // 6*52 packs of 52 cards
    private static int PACK_SIZE = 52;
    private static Card[] masterPack = new Card[PACK_SIZE];
    private Card[] cards = new Card[MAX_CARDS];
