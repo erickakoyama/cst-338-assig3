@@ -72,11 +72,12 @@ public class Deck {
 
    /**
     * Return a Card with errorFlag = true, if k is out of range.
+    * pre-condition: deck is not empty and k is within range.
     * @param k The index of the card to inspect.
     * @return  The Card at the index or an illegal Card.
     */
    public Card inspectCard(int k) {
-      if (k <= topCard) {
+      if (topCard != 0 && k >= 0 && k < topCard) {
          return new Card(cards[k]);
       }
 
