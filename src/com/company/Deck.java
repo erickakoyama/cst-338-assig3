@@ -49,10 +49,16 @@ public class Deck {
    }
 
    /**
-    * Shuffle the deck in a random order.
-    */
+   * Shuffle the deck in a random order.
+   */
    public void shuffle() {
       // mixes up the cards with the help of the standard random number generator.
+      for(i = 0; i < topcard - 1; i++) {
+         j = Random().nextInt(n - i) + i;
+         Card temp = cards[j];
+         cards[j] = cards[i];
+         cards[i] = temp;
+      }
    }
 
    /**
