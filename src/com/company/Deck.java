@@ -23,6 +23,7 @@ public class Deck {
 
    /**
     * Constructor with number of packs.
+    *
     * @param numPacks Number of packs to include in deck.
     */
    Deck(int numPacks) {
@@ -34,11 +35,12 @@ public class Deck {
 
    /**
     * Fill up the deck with the given number of card packs.
+    *
     * @param numPacks Number of packs to initialize the deck.
     */
    public void init(int numPacks) {
       // fill up cards array
-      topCard = numPacks*PACK_SIZE;
+      topCard = numPacks * PACK_SIZE;
       for (int i = 0; i < numPacks; i++) {
          for (int j = 0; j < PACK_SIZE; j++) {
             cards[(PACK_SIZE * i) + j] = new Card(masterPack[j]);
@@ -55,6 +57,7 @@ public class Deck {
 
    /**
     * Deal out a Card from cards.
+    *
     * @return Card dealt.
     */
    public Card dealCard() {
@@ -73,8 +76,9 @@ public class Deck {
    /**
     * Return a Card with errorFlag = true, if k is out of range.
     * pre-condition: deck is not empty and k is within range.
+    *
     * @param k The index of the card to inspect.
-    * @return  The Card at the index or an illegal Card.
+    * @return The Card at the index or an illegal Card.
     */
    public Card inspectCard(int k) {
       if (topCard != 0 && k >= 0 && k < topCard) {
@@ -88,7 +92,7 @@ public class Deck {
     * Fill the masterPack card array. We should only do this once,
     * regardless of how many Deck objects there are.
     */
-   private static void allocateMasterPack(){
+   private static void allocateMasterPack() {
       if (masterPack[0] != null) { // return early if we have already executed this setup
          return;
       }

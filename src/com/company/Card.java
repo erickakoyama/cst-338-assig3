@@ -9,7 +9,8 @@ public class Card {
       DIAMONDS,
       HEARTS,
       SPADES
-   };
+   }
+
    private char value;
    private Suit suit;
    private boolean errorFlag; // Whether this Card has an error.
@@ -24,6 +25,7 @@ public class Card {
 
    /**
     * Constructor with value and suit.
+    *
     * @param value The value of the card.
     * @param suit  The suit of the card.
     */
@@ -33,6 +35,7 @@ public class Card {
 
    /**
     * Copy constructor
+    *
     * @param card Card to make copy of.
     */
    Card(Card card) {
@@ -41,8 +44,9 @@ public class Card {
 
    /**
     * Check if the given Card object equals this one.
+    *
     * @param card Card instance to check for equality to this.
-    * @return     Whether the Card objects are equal.
+    * @return Whether the Card objects are equal.
     */
    public boolean equals(Card card) {
       return card.getSuit() == suit && card.getValue() == value;
@@ -50,6 +54,7 @@ public class Card {
 
    /**
     * Check if this Card has an error.
+    *
     * @return Whether the Card object has an error.
     */
    public boolean getErrorFlag() {
@@ -58,6 +63,7 @@ public class Card {
 
    /**
     * Get the suit of this card.
+    *
     * @return Suit of card.
     */
    public Suit getSuit() {
@@ -66,6 +72,7 @@ public class Card {
 
    /**
     * Get the value of this card.
+    *
     * @return Value of this card.
     */
    public char getValue() {
@@ -74,16 +81,17 @@ public class Card {
 
    /**
     * Check if the parameters given are valid for a Card.
+    *
     * @param value Value given.
     * @param suit  Suit given.
-    * @return      Whether the parameters are valid.
+    * @return Whether the parameters are valid.
     */
    private boolean isValid(char value, Suit suit) {
       if (value >= '2' && value <= '9') {
          return true;
       }
 
-      switch(value) {
+      switch (value) {
          case 'T':
          case 'J':
          case 'Q':
@@ -97,9 +105,10 @@ public class Card {
 
    /**
     * Set given parameters for Card.
+    *
     * @param value Value to set for Card.
     * @param suit  Suit to set for Card.
-    * @return      Whether the parameters were able to be set.
+    * @return Whether the parameters were able to be set.
     */
    public boolean set(char value, Suit suit) {
       if (isValid(value, suit)) {
@@ -115,6 +124,7 @@ public class Card {
 
    /**
     * Display Card as a String.
+    *
     * @return Card data as a String.
     */
    public String toString() {

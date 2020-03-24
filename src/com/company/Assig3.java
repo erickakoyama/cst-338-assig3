@@ -8,17 +8,24 @@ public class Assig3 {
 
       testDeck(2);
 
-      System.out.println();  System.out.println(); // separate outputs
+      System.out.println();
+      System.out.println(); // separate outputs
 
       testDeck(1);
 
-      System.out.println();  System.out.println(); // separate outputs
+      System.out.println();
+      System.out.println(); // separate outputs
 
       assign3Tester(keyboard);
 
       keyboard.close();
    }
 
+   /**
+    * Deal out deck to Screen.
+    *
+    * @param deck Deck to deal.
+    */
    public static void dealDeckToScreen(Deck deck) {
       while (deck.getTopCard() > 0) {
          if (deck.getTopCard() > 0) {
@@ -27,11 +34,17 @@ public class Assig3 {
       }
    }
 
+   /**
+    * Test a Deck by dealing unshuffled and then shuffled
+    *
+    * @param numPacks Number of card packs to use in Deck.
+    */
    public static void testDeck(int numPacks) {
       Deck deck = new Deck(numPacks);
 
       dealDeckToScreen(deck); // unshuffled
-      System.out.println();  System.out.println(); // separate outputs
+      System.out.println();
+      System.out.println(); // separate outputs
 
       deck.init(numPacks);
       deck.shuffle();
@@ -39,49 +52,48 @@ public class Assig3 {
       dealDeckToScreen(deck); //shuffled
    }
 
-    /* 
-    Test Hand Class
+   /**
+    * Test Hand Class
     */
-    public static void handTester()
-    {
-        // Hand class test run
-        Card c1 = new Card('3', Card.Suit.CLUBS);
-        Card c2 = new Card('Q', Card.Suit.HEARTS);
-        Card c3 = new Card('K', Card.Suit.DIAMONDS);
-        Card c4 = new Card();
+   public static void handTester() {
+      // Hand class test run
+      Card c1 = new Card('3', Card.Suit.CLUBS);
+      Card c2 = new Card('Q', Card.Suit.HEARTS);
+      Card c3 = new Card('K', Card.Suit.DIAMONDS);
+      Card c4 = new Card();
 
-        Hand h = new Hand();
+      Hand h = new Hand();
 
-        boolean handNotFull = true;
-        // Add cards to hand until full
-        while(handNotFull)
-        {
-            h.takeCard(c1);
-            h.takeCard(c2);
-            h.takeCard(c3);
-            handNotFull = h.takeCard(c4); // this will tell us if we've filled our hand in our latest iteration
-        }
-        System.out.println("Hand full \nAfter deal");
+      boolean handNotFull = true;
+      // Add cards to hand until full
+      while (handNotFull) {
+         h.takeCard(c1);
+         h.takeCard(c2);
+         h.takeCard(c3);
+         handNotFull = h.takeCard(c4); // this will tell us if we've filled our hand in our latest iteration
+      }
+      System.out.println("Hand full \nAfter deal");
 
-        System.out.println(h.toString());
+      System.out.println(h.toString());
 
-        System.out.println("Testing inspectCard()");
-        Card c = h.inspectCard(25);
-        c.toString();
+      System.out.println("Testing inspectCard()");
+      Card c = h.inspectCard(25);
+      c.toString();
 
-        // Play all cards in hand
-        for(int i = h.getNumCards(); i > 0; i--)
-        {
-            Card topCard = h.playCard();
-            System.out.println("Playing " + topCard.toString());
-        }
+      // Play all cards in hand
+      for (int i = h.getNumCards(); i > 0; i--) {
+         Card topCard = h.playCard();
+         System.out.println("Playing " + topCard.toString());
+      }
 
-        System.out.println("After playing all cards");
-        System.out.println(h.toString());
-    }
-    
+      System.out.println("After playing all cards");
+      System.out.println(h.toString());
+   }
+
    /**
     * Test Deck and Hand class
+    *
+    * @param keyboard
     */
    public static void assign3Tester(Scanner keyboard) {
       int numPlayers;
@@ -120,6 +132,13 @@ public class Assig3 {
       } while (numPlayers < minPlayers || numPlayers > maxPlayers); // keep asking until we get a valid input.
    }
 
+   /**
+    * Deal out deck to players.
+    *
+    * @param deck
+    * @param players
+    * @param numPlayers
+    */
    public static void dealOutDeck(Deck deck, Hand[] players, int numPlayers) {
       while (deck.getTopCard() > 0) {
          for (int i = 0; i < numPlayers; i++) {
@@ -130,10 +149,16 @@ public class Assig3 {
       }
    }
 
-   public static void printHands(Hand[] hands, int numPlayers) {
-      for (int i = 0; i < numPlayers; i++) {
-        System.out.println(hands[i].toString());
-        System.out.println(); // separate outputs
+   /**
+    * Print out each Hand in hands.
+    *
+    * @param hands
+    * @param numHands
+    */
+   public static void printHands(Hand[] hands, int numHands) {
+      for (int i = 0; i < numHands; i++) {
+         System.out.println(hands[i].toString());
+         System.out.println(); // separate outputs between hands
       }
    }
 }
