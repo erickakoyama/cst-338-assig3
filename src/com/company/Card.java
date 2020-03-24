@@ -4,7 +4,7 @@ package com.company;
  * Card class represents a single card.
  */
 public class Card {
-   public static enum Suit { // All possible suits of a card
+   public enum Suit { // All possible suits of a card
       CLUBS,
       DIAMONDS,
       HEARTS,
@@ -111,12 +111,11 @@ public class Card {
     * @return Whether the parameters were able to be set.
     */
    public boolean set(char value, Suit suit) {
-      if (isValid(value, suit)) {
-         errorFlag = false;
+      errorFlag = !isValid(value, suit);
+
+      if (!errorFlag) {
          this.value = value;
          this.suit = suit;
-      } else {
-         errorFlag = true;
       }
 
       return !errorFlag;
