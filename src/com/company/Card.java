@@ -49,7 +49,7 @@ public class Card {
     * @return Whether the Card objects are equal.
     */
    public boolean equals(Card card) {
-      return card.getSuit() == suit && card.getValue() == value;
+      return card != null && card.getSuit() == suit && card.getValue() == value;
    }
 
    /**
