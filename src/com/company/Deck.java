@@ -10,7 +10,7 @@ public class Deck {
    private static int PACK_SIZE = 52;
    private static Card[] masterPack = new Card[PACK_SIZE];
    private Card[] cards = new Card[MAX_CARDS];
-   private int topCard;
+   private int topCard; // 0 when the deck is empty
 
    /**
     * No argument constructor
@@ -38,9 +38,9 @@ public class Deck {
     */
    public void init(int numPacks) {
       // fill up cards array
+      topCard = numPacks*PACK_SIZE;
       for (int i = 0; i < numPacks; i++) {
          for (int j = 0; j < PACK_SIZE; j++) {
-            topCard++;
             cards[(PACK_SIZE * i) + j] = new Card(masterPack[j]);
          }
       }
