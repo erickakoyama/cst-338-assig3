@@ -3,38 +3,42 @@ package com.company;
 import java.util.*;
 
 public class Assig3 {
+   public static void main(String[] args) {
+      Scanner keyboard = new Scanner(System.in);
 
-    public static void main(String[] args) {
-       Scanner keyboard = new Scanner(System.in);
+      testDeck(2);
 
-       testDeck();
+      System.out.println();  System.out.println(); // separate outputs
 
-       System.out.println();
+      testDeck(1);
 
-       assign3Tester(keyboard);
+      System.out.println();  System.out.println(); // separate outputs
 
-       keyboard.close();
-    }
+      assign3Tester(keyboard);
 
-    public static void testDeck(){
-       Deck deck = new Deck(2);
+      keyboard.close();
+   }
 
-       while (deck.getTopCard() > 0) { // unshuffled
-          if (deck.getTopCard() > 0) {
-             System.out.print(deck.dealCard() + " / ");
-          }
-       }
+   public static void dealDeckToScreen(Deck deck) {
+      while (deck.getTopCard() > 0) {
+         if (deck.getTopCard() > 0) {
+            System.out.print(deck.dealCard() + " / ");
+         }
+      }
+   }
 
-       System.out.println(); System.out.println(); // separate outputs
-       deck.init(2);
-       deck.shuffle();
+   public static void testDeck(int numPacks) {
+      Deck deck = new Deck(numPacks);
 
-       while (deck.getTopCard() > 0) { // shuffled
-          if (deck.getTopCard() > 0) {
-             System.out.print(deck.dealCard() + " / ");
-          }
-       }
-    }
+      dealDeckToScreen(deck); // unshuffled
+      System.out.println();  System.out.println(); // separate outputs
+
+      deck.init(numPacks);
+      deck.shuffle();
+
+      dealDeckToScreen(deck); //shuffled
+   }
+
     /* 
     Test Hand Class
     */
@@ -129,6 +133,7 @@ public class Assig3 {
    public static void printHands(Hand[] hands, int numPlayers) {
       for (int i = 0; i < numPlayers; i++) {
         System.out.println(hands[i].toString());
+        System.out.println(); // separate outputs
       }
    }
 }
