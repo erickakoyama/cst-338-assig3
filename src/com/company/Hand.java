@@ -44,8 +44,8 @@ class Hand {
    * @return the card that was removed from the top of the array, or Card with error flag if nocards to play.
    */
    public Card playCard() {
-      if(numcards > 0) {
-         numcards--;
+      if (numCards > 0) {
+         numCards--;
          return new Card(myCards[numCards]);
       }
       // No cards to play, return a card with an error flag
