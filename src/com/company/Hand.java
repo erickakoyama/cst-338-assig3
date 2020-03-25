@@ -15,6 +15,7 @@ class Hand {
    Hand() {
       resetHand();
    }
+
    /**
    * Remove all cards from the hand.
    */
@@ -22,6 +23,7 @@ class Hand {
       this.myCards = new Card[MAX_CARDS];
       this.numCards = 0;
    }
+
    /**
    * Add a copy of the card to the next available position in the myCards array.
    * @param card Card instance to add to the hand.
@@ -30,23 +32,27 @@ class Hand {
    public boolean takeCard(Card card) {
       if(numCards < MAX_CARDS) {
          Card newCard = new Card(card.getValue(), card.getSuit());
-         System.out.println(newCard.toString());
          myCards[numCards] = newCard;
          this.numCards += 1;
          return true;
       }
       return false;
    }
+
    /**
    * Removes and returns the card in the top occupied position of the array.
-   * @return the card that was removed from the top of the array.
+   * @return the card that was removed from the top of the array, or Card with error flag if nocards to play.
    */
    public Card playCard() {
-      Card card = myCards[numCards-1];
-      myCards[numCards-1] = null;
-      numCards -= 1;
-      return card;
+      if(numcards > 0) {
+         numcards--;
+         Card card = myCards[numCards];
+         return card;
+      }
+      // No cards to play, return a card with an error flag
+      return new Card('1', Card.Suit.CLUBS);
    }
+
    /**
    * Diplay the entire hand.
    * @return Hand data as a String.
@@ -60,6 +66,7 @@ class Hand {
       if(numCards > 0) result = result.substring(0, result.length() - 2);
       return result + " )";
    }
+
    /**
    * Accessor for the current number of Cards held in the Hand.
    * @return the current number of Cards held in the Hand.
@@ -67,6 +74,7 @@ class Hand {
    public int getNumCards() {
       return numCards;
    }
+
    /**
    * Access individual card. 
    * @param k the position in the array to pull a Card from.
