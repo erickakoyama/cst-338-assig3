@@ -9,7 +9,7 @@ public class Deck {
    public static final int MAX_CARDS = 312; // 6*52 packs of 52 cards
    private static int PACK_SIZE = 52;
    private static Card[] masterPack = new Card[PACK_SIZE];
-   private Card[] cards = new Card[MAX_CARDS];
+   private Card[] cards;
    private int topCard; // 0 when the deck is empty
 
    /**
@@ -17,8 +17,6 @@ public class Deck {
     */
    Deck() {
       this(1); // default size of 1 pack
-
-      allocateMasterPack();
    }
 
    /**
@@ -28,6 +26,7 @@ public class Deck {
     */
    Deck(int numPacks) {
       topCard = 0;
+      cards = new Card[MAX_CARDS];
 
       allocateMasterPack();
       init(numPacks);
