@@ -46,8 +46,7 @@ class Hand {
    public Card playCard() {
       if(numcards > 0) {
          numcards--;
-         Card card = myCards[numCards];
-         return card;
+         return new Card(myCards[numCards]);
       }
       // No cards to play, return a card with an error flag
       return new Card('1', Card.Suit.CLUBS);
@@ -81,8 +80,8 @@ class Hand {
    * @return Card at k position in hand or Card with error flag if k is bad.
    */
    public Card inspectCard(int k) {
-      if(0 <= k && k < numCards) {
-         return myCards[k];
+      if (0 <= k && k < numCards) {
+         return new Card(myCards[k]);
       }
       // Return a card with an error flag
       return new Card('1', Card.Suit.CLUBS);
